@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VendPoint | Details</title>
+    <meta name="description" content="VendPoint - TP's Vending Machine Locator & Editor">
+    <link rel="shortcut icon" href="/system_images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+</head>
+</head>
+<body>
+    <header>
+        <a href="/" tabindex="-1">
+            <img src="/system_images/logo.png" alt="VendPoint Logo">
+        </a>
+        <div>
+            <button data-active="true">Vending Machines</button>
+            <button>Items</button>
+            <button>Notifications</button>
+        </div>
+    </header>
+
+    <main id="details_page">
+        <section>
+            <div>
+                <a href="#general">General</a>
+                <a href="#payment">Payment</a>
+                <a href="#items">Items</a>
+                <a href="#danger">Danger Zone</a>
+            </div>
+        </section>
+        <section>
+            <div id="general">
+                <div>
+                    <h3>General</h3>
+
+                    <div>
+                        <div class="autosaved">Autosaved</div>
+    
+                        <div>
+                            <span class="status_option status1"></span>
+                            <p>Connected</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p>VendPoint ID</p>
+                    <p></p>
+
+                    <label for="school">School</label>
+                    <input type="text" name="school" id="school" disabled>
+
+                    <label for="vendor">Vendor</label>
+                    <input type="text" name="vendor" id="vendor" required>
+
+                    <label for="block">Block</label>
+                    <input type="number" name="block" id="block" min="1" max="34" required>
+
+                    <p>Please input a valid block number. Invalid input will not be saved.</p>
+
+                    <label for="level">Level</label>
+                    <input type="number" name="level" id="level" min="1" max="8" required>
+
+                    <p id="status_title">Status</p>
+                    <div aria-labelledby="status_title">
+                        <input type="radio" name="status" value="1" id="operational">
+                        <label for="operational">
+                            <span class="status_option status1"></span>
+                            Operational
+                        </label>
+
+                        <input type="radio" name="status" value="2" id="maintenance">
+                        <label for="maintenance">
+                            <span class="status_option status2"></span>
+                            Under Maintenance
+                        </label>
+
+                        <input type="radio" name="status" value="3" id="oos">
+                        <label for="oos">
+                            <span class="status_option status3"></span>
+                            Out of Service
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="payment">
+                <h3>Payment</h3>
+                <div>
+                    <div>
+                        <input type="checkbox" name="cash" id="cash">
+                        <span></span>
+                        <label for="cash" class="cash">Cash</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="applepay" id="applepay">
+                        <span></span>
+                        <label for="applepay" class="applepay">ApplePay</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="visa" id="visa">
+                        <span></span>
+                        <label for="visa" class="visa">VISA</label>                    
+                    </div>
+                    <div>
+                        <input type="checkbox" name="nets" id="nets">
+                        <span></span>
+                        <label for="nets" class="nets">NETS</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="ez-link" id="ezlink">
+                        <span></span>
+                        <label for="ezlink" class="ez-link">EZ-Link</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="grabpay" id="grabpay">
+                        <span></span>
+                        <label for="grabpay" class="grabpay">GrabPay</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="paynow" id="paynow">
+                        <span></span>
+                        <label for="paynow" class="paynow">PayNow</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="mastercard" id="mastercard">
+                        <span></span>
+                        <label for="mastercard" class="mastercard">MasterCard</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="google pay" id="googlepay">
+                        <span></span>
+                        <label for="googlepay" class="googlepay">Google Pay</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="items">
+                <div>
+                    <h3>Items</h3>
+                    <div>
+                        <button>Edit Items</button>
+                        <button>Add Item</button>
+                    </div>
+                </div>
+                <p>Note: The quantity shown is the total quantity from all vending machines, not the quantity in this machine.</p>
+                <div></div>
+            </div>
+
+            <div id="danger">
+                <h3>Danger Zone</h3>
+
+                <button>Delete Vending Machine</button>
+            </div>
+        </section>
+    </main>
+    
+    <footer>&copy; 2024 VendPoint. All Rights Reserved.</footer>
+
+    <template id="item_template">
+        <div class="item">
+            <i class="fa-solid fa-xmark"></i>
+            <div>
+                <img src="" alt="">
+            </div>
+            <div>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+    </template>
+
+    <section class="confirmation">
+        <div>
+            <i class="fa-solid fa-exclamation-triangle"></i>
+            <p>Are you sure you want to delete this item?</p>
+            <div>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="confirmation" id="delete_vm">
+        <div>
+            <i class="fa-solid fa-exclamation-triangle"></i>
+            <p>Are you sure you want to delete this vending machine?</p>
+            <div>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="add_vm_item_container">
+        <div>
+            <i class="fa-solid fa-xmark"></i>
+            <h3>Add New Item</h3>
+
+            <div></div>
+
+            <div>
+                <p>No items selected</p>
+                <button disabled>Add</button>
+            </div>
+        </div>
+    </section>
+
+    <template id="add_vm_item_template">
+        <div class="add_vm_item">
+            <span class="status_option status1"></span>
+            <div>
+                <img src="/item_images/100 Plus Original.webp" alt="">
+            </div>
+
+            <div>
+                <p>100 Plus</p>
+                <p>$Price</p>
+                <p>Quantity</p>
+            </div>
+            <p>Already Added</p>
+        </div>
+    </template>
+
+    <script src="/details.js"></script>
+</body>
+</html>

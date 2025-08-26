@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VendPoint | Details</title>
+    <meta name="description" content="VendPoint - TP's Vending Machine Locator & Editor">
+    <link rel="shortcut icon" href="/system_images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+</head>
+</head>
+<body>
+    <header>
+        <a href="/" tabindex="-1">
+            <img src="/system_images/logo.png" alt="VendPoint Logo">
+        </a>
+        <div>
+            <button>Vending Machines</button>
+            <button>Items</button>
+            <button data-active="true">Notifications</button>
+        </div>
+    </header>
+
+    <main id="details_page" class="email">
+        <section>
+            <div>
+                <a href="#enable">Enable Notifications</a>
+                <a href="#recipient">Recipient</a>
+                <a href="#days">Notification Days</a>
+                <a href="#quantity">Quantity Threshold</a>
+            </div>
+        </section>
+        <section>
+            <div id="enable">
+                <div>
+                    <h3>Enable Notifications</h3>
+
+                    <div>
+                        <div class="autosaved">Autosaved</div>
+                        <div>
+                            <span class="status_option status1"></span>
+                            <p>Connected</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p>Every day at 8:30 AM, the system checks if any items have fallen below the threshold and sends an email alert listing these items.</p>
+                    <p>This helps:</p>
+                    <ul>
+                        <li>Proactive Stock Management</li>
+                        <li>Improve Efficiency</li>
+                        <li>Improved Student Satisfaction</li>
+                        <li>Reduced Manual Monitoring</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="enable_email" id="enable_email">
+
+                    <div>
+                        <button>
+                            <i class="fa-solid fa-xmark"></i>
+
+                        </button>
+                        <button>
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="recipient">
+                <h3 title="Specifies the email address where the system will send an email">Recipient</h3>
+                <div>
+                    <label for="recipient_input">Email</label>
+                    <input type="email" id="recipient_input" placeholder="Enter Email Address" autocomplete="email" required>
+                </div>
+            </div>
+
+            <div id="days">
+                <h3 title="Specifies which days of the week the system will send an email alert">Notification Days</h3>
+
+                <div>
+                    <label for="monday">Monday</label>
+                    <input type="checkbox" name="monday" id="monday">
+                    <span></span>
+                </div>
+                <div>
+                    <label for="tuesday">Tuesday</label>
+                    <input type="checkbox" name="tuesday" id="tuesday">
+                    <span></span>
+                </div>
+                <div>
+                    <label for="wednesday">Wednesday</label>
+                    <input type="checkbox" name="wednesday" id="wednesday">
+                    <span></span>
+                </div>
+                <div>    
+                    <label for="thursday">Thursday</label>
+                    <input type="checkbox" name="thursday" id="thursday">
+                    <span></span>
+                </div>
+                <div>
+                    <label for="friday">Friday</label>
+                    <input type="checkbox" name="friday" id="friday">
+                    <span></span>
+                </div>
+                <div>
+                    <label for="saturday">Saturday</label>
+                    <input type="checkbox" name="saturday" id="saturday">
+                    <span></span>    
+                </div>
+                <div>
+                    <label for="sunday">Sunday</label>
+                    <input type="checkbox" name="sunday" id="sunday">
+                    <span></span>
+                </div>
+            </div>
+
+            <div id="quantity_threshold">
+                <h3 title="Specifies the quantity threshold at which the system will send an email alert">Quantity Threshold</h3>
+                <div>
+                    <label for="quantity_threshold_input">Quantity Threshold</label>
+                    <input type="number" name="quantity_threshold" id="quantity_threshold_input" placeholder="Enter Quantity Threshold" required min="0" step="1">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>&copy; 2024 VendPoint. All Rights Reserved.</footer>
+
+    <script src="/email.js"></script>
+</body>
+</html>

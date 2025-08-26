@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VendPoint | Items</title>
+    <meta name="description" content="VendPoint - TP's Vending Machine Locator & Editor">
+    <link rel="shortcut icon" href="/system_images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+</head>
+<body class="flex_page">
+    <header>
+        <a href="/" tabindex="-1">
+            <img src="/system_images/logo.png" alt="VendPoint Logo">
+        </a>
+        <div>
+            <button>Vending Machines</button>
+            <button data-active="true">Items</button>
+            <button>Notifications</button>
+        </div>
+    </header>
+    
+    <main id="items_page">
+        <section>
+            <div>
+                <label for="search">
+                    <i class="fa-solid fa-search"></i>
+                    Search
+                </label>
+                <input type="search" name="search" id="search" placeholder="Search for an item" autocomplete="off">
+                
+                <div>
+                    <input type="radio" name="availability" id="all" checked>
+                    <label for="all">All</label>
+                    <input type="radio" name="availability" id="available">
+                    <label for="available">Available</label>
+                    <input type="radio" name="availability" id="unavailable">
+                    <label for="unavailable">Unavailable</label>
+                </div>
+
+
+                <div>
+                    <span class="status_option status1"></span>
+                    <p>Connected</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="autosaved">Autosaved</div>
+                <button>Add Item</button>
+            </div>
+        </section>
+
+        <section></section>
+    </main>
+
+    <div class="loader">
+        <div></div>
+    </div>
+    <div class="issues">
+        <noscript>JavaScript is disabled</noscript>
+    </div>
+
+    <template id="item_data">
+        <div class="item1">
+            <span></span>
+            <i class="fa-solid fa-xmark"></i>
+
+            <div class="item1_image">
+                <img>
+                <span></span>
+            </div>
+
+            <div>
+                <textarea class="name"></textarea>
+                <div>
+                    <span>$</span>
+                    <input type="number" value="0.00" min="0.00" step="0.01" required class="cost">
+                </div>
+                <div>
+                    <button>
+                        <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <input type="number" value="0" min="0" required class="quantity">
+                    <button>
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <section class="add_item">
+        <form method="post" action="/add_item" novalidate>
+            <i class="fa-solid fa-xmark"></i>
+            <h3>Add New Item</h3>
+
+            <div>
+                <label for="name">Item Name</label>
+                <input type="text" name="name" id="name" required placeholder="Item Name" autocomplete="on">
+
+                <p>Please input the item name</p>
+
+                <label for="cost">Item Cost</label>
+                <div>
+                    <span>$</span>
+                    <input type="number" name="cost" id="cost" required placeholder="Item Cost">
+                </div>
+
+                <p>Please input the item cost</p>
+
+                <p>Availability</p>
+                <div>
+                    <input type="radio" name="available" id="available1" value="available" required checked>
+                    <label for="available1">Available</label>
+                    <input type="radio" name="available" id="unavailable1" value="unavailable" required>
+                    <label for="unavailable1">Unavailable</label>
+                </div>
+
+                <p>Please select the item availability</p>
+
+                <label for="quantity">Item Quantity</label>
+                <input type="number" name="quantity" id="quantity" required placeholder="Item Quantity">
+            
+                <p>Please input the item quantity</p>
+            </div>
+
+            <label for="image">Image</label>
+            <div id="file_name">
+                <p></p>
+                <i class="fa-solid fa-trash"></i>
+            </div>
+
+            <div id="drop_zone"><i class="fa-solid fa-upload"></i>Drag and drop or click to upload</div>
+            <input type="file" name="image" id="image" accept="image/*" required>
+
+            <p>Please upload the item image</p>
+
+            <button type="submit">Add</button>
+        </form>
+    </section>
+
+    <section class="confirmation">
+        <div>
+            <i class="fa-solid fa-exclamation-triangle"></i>
+            <p>Are you sure you want to delete this item?</p>
+            <div>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="change_image">
+        <div>
+            <i class="fa-solid fa-xmark"></i>
+            <h3>Change Image - <span></span></h3>
+
+            <form method="post" action="/change_image" novalidate id="change_image_form">
+                <div>
+                    <p>Current Image:</p>
+                    <div>
+                        <img id="original">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="new">New Image:</label>
+                    <div class="drop_zone" id="drop_zone1"><i class="fa-solid fa-upload"></i>Drag and drop or click to upload</div>
+                    <input type="file" id="new" required accept="image/*">
+                    <div>
+                        <img id="new_image_preview">
+                    </div>
+                </div>
+            </form>
+
+            <button type="submit" form="change_image_form">Change</button>
+        </div>
+    </section>
+
+    <footer>&copy; 2024 VendPoint. All Rights Reserved.</footer>
+
+    <script src="/items.js" nonce="vendpoint"></script>
+</body>
+</html>

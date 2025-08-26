@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VendPoint | Vending Machines</title>
+    <meta name="description" content="VendPoint - TP's Vending Machine Locator & Editor">
+    <link rel="shortcut icon" href="/system_images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+</head>
+<body class="flex_page">
+    <header>
+        <img src="/system_images/logo.png" alt="VendPoint Logo">
+        <div>
+            <button data-active="true">Vending Machines</button>
+            <button>Items</button>
+            <button>Notifications</button>
+        </div>
+    </header>
+    <main id="home_page">
+        <p>Find a Vending Machine</p>
+        <section>
+            <div id="map"></div>
+        </section>
+
+        <div>
+            <p>All Vending Machines</p>
+            <button>Add Vending Machine</button>
+        </div>
+        
+        <section></section>
+    </main>
+
+    <div class="loader">
+        <div></div>
+    </div>
+    <div class="issues">
+        <noscript>JavaScript is disabled</noscript>
+    </div>
+
+    <template id="add_row">
+        <div class="vm_container">
+            <div>
+                <div>
+                    <p><i class="fa-solid fa-school"></i>School: IIT</p>
+                    <p><i class="fa-solid fa-building"></i>Block: 3</p>
+                    <p><i class="fa-solid fa-elevator"></i>Level: 3</p>
+                    <p><i class="fa-solid fa-info-circle"></i>Status: Under Maintenance</p>
+                </div>
+                
+                <div>
+                    <p><i class="fa-solid fa-wallet"></i>Payment Method(s): </p>
+                    <div></div>
+                </div>
+            </div>
+        
+            <button>View Details</button>
+        </div>
+    </template>
+
+    <div class="results">
+        <i class="fa-solid fa-xmark"></i>
+        <div>
+            <div>
+                <p>School</p>
+                <p>Block</p>
+                <p>Level</p>
+                <p>Payment Method</p>
+                <p>Vendor</p>
+                <p>Status</p>
+            </div>
+
+            <div>
+                <p></p>
+                <p></p>
+                <p></p>
+                <div id="results_payment"></div>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+    
+        <button aria-label="view details">View Details</button>
+    </div>
+
+    <section class="add_vm">
+        <form action="" novalidate>
+            <i class="fa-solid fa-xmark"></i>
+            <p>Add New Vending Machine</p>
+
+            <div>
+                <label for="school">School</label>
+                <input type="text" name="school" id="school" required disabled value="HSS">
+
+                <label for="block">Block</label>
+                <input type="number" name="block" id="block" required value="1" min="1" max="34" placeholder="Please input a block number">
+
+                <p>Please input a valid block number</p>
+
+                <label for="level">Level</label>
+                <input type="number" name="level" id="level" value="1" required min="1" max="8" placeholder="Please input a level">
+
+                <p>Please input a valid level</p>
+
+                <label for="vendor">Vendor</label>
+                <input type="text" name="vendor" id="vendor" required placeholder="Please input a vendor">
+
+                <p>Please input a valid vendor</p>
+
+                <div>
+                    <p>Status</p>
+                    <input type="radio" name="status" id="operational" value="1" required checked>
+                    <label for="operational">Operational</label>
+                    <input type="radio" name="status" id="maintenance" value="2" required>
+                    <label for="maintenance">Under Maintenance</label>
+                    <input type="radio" name="status" id="oos" value="3" required>
+                    <label for="oos">Out of Service</label>
+                </div>
+
+                <p>Note: Payment Method(s) and Item(s) to be added afterwards</p>
+            </div>
+
+            <button type="submit">Add Vending Machine</button>
+        </form>
+    </section>
+
+
+    <footer>&copy; 2024 VendPoint. All Rights Reserved.</footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js" nonce="vendpoint"></script>
+    <script src="/index.js" nonce="vendpoint"></script>
+</body>
+</html>
